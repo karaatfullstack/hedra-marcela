@@ -1,14 +1,46 @@
 "use strict";
 
-const {
-  db,
-  models: { User },
-} = require("../server/db");
+const { db } = require("../server/db");
+const data = require("./data");
+const User = require("../server/db/models/User");
+const Property = require("../server/db/models/Property");
+const Unit = require("../server/db/models/Unit");
+const Task = require("../server/db/models/Task");
 
-/**
- * seed - this function clears the database, updates tables to
- *      match the models, and populates the database.
- */
+const properties = [
+  {
+    name: "Adelphi",
+    address: "206 21st Street, Brooklyn, NY 11232",
+    imageUrl: "https://p.rdcpix.com/v02/l4a0da442-m0od-w480_h480_q80.jpg",
+    yearBuilt: 2010,
+    totalUnits: 8,
+    description: "4 Story Condo Building, with 8 units.",
+  },
+];
+
+const units = [
+  {
+    name: "A",
+    unitType: "2 Bedroom, 1 bath, duplex",
+    isVacant: false,
+  },
+  {
+    name: "B",
+    unitType: "2 Bedroom, 1 bath, duplex",
+    isVacant: false,
+  },
+  {
+    name: "C",
+    unitType: "2 Bedroom, 1 bath",
+    isVacant: false,
+  },
+  {
+    name: "D",
+    unitType: "2 Bedroom, 1 bath",
+    isVacant: true,
+  },
+];
+
 async function seed() {
   await db.sync({ force: true }); // clears db and matches models to tables
   console.log("db synced!");
@@ -19,7 +51,39 @@ async function seed() {
     User.create({ username: "facundo", password: "0516" }),
   ]);
 
+  const propertyList = await Promise.all(
+    properties.map((property) => {
+      return Property.create(property);
+    })
+  );
+  const [Adelphi] = propertyList;
+
+  const unitList = await Promise.all(
+    units.map((unit) => {
+      return Unit.create(unit);
+    })
+  );
+
+  const [A, B, C, D] = unitList;
+
+  await A.setProperty(Adelphi);
+  await B.setProperty(Adelphi);
+  await C.setProperty(Adelphi);
+  await D.setProperty(Adelphi);
+
+  for (let i = 0; i < data.length; i++) {
+    const task = data[i];
+    await Promise.all([
+      Task.create({
+        name: task.name,
+        description: task.description,
+      }),
+    ]);
+  }
+
   console.log(`seeded ${users.length} users`);
+  //console.log(`seeded ${properties.length} users`);
+  //console.log(`seeded ${units.length} users`);
   console.log(`seeded successfully`);
   return {
     users: {
