@@ -10,7 +10,7 @@ const Home = (props) => {
   return (
     <div>
       <div>
-        <h1>Property Dashboard</h1>
+        <h1>Owner Dashboard</h1>
       </div>
       <div>
         <h3>Welcome, {username} !</h3>

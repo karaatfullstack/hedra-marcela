@@ -22,22 +22,19 @@ const units = [
   {
     name: "A",
     unitType: "2 Bedroom, 1 bath, duplex",
-    isVacant: false,
   },
   {
     name: "B",
     unitType: "2 Bedroom, 1 bath, duplex",
-    isVacant: false,
   },
   {
     name: "C",
     unitType: "2 Bedroom, 1 bath",
-    isVacant: false,
+    occupancy: "VACANT",
   },
   {
     name: "D",
     unitType: "2 Bedroom, 1 bath",
-    isVacant: true,
   },
 ];
 

@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
-import AuthForm from '../features/auth/AuthForm';
-import Home from '../features/home/Home';
-import { me } from './store';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Route, Routes } from "react-router-dom";
+import AuthForm from "../features/auth/AuthForm";
+import Home from "../features/home/Home";
+import LandingPage from "../features/home/LandingPage";
+import Properties from "../features/property/Properties";
+import Property from "../features/property/Property";
+import { me } from "./store";
 
 /**
  * COMPONENT
@@ -23,13 +26,12 @@ const AppRoutes = () => {
         <Routes>
           <Route path="/*" element={<Home />} />
           <Route to="/home" element={<Home />} />
+          <Route path="/properties" element={<Properties />} />
+          <Route path="/properties/:propertyId" element={<Property />} />
         </Routes>
       ) : (
         <Routes>
-          <Route
-            path="/*"
-            element={<AuthForm name="login" displayName="Login" />}
-          />
+          <Route path="/*" element={<LandingPage />} />
           <Route
             path="/login"
             element={<AuthForm name="login" displayName="Login" />}

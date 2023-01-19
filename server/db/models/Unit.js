@@ -16,9 +16,10 @@ const Unit = db.define("unit", {
       notEmpty: true,
     },
   },
-  isVacant: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
+  occupancy: {
+    type: Sequelize.ENUM("OCCUPIED", "VACANT"),
+    defaultValue: "OCCUPIED",
+    allowNull: false,
   },
 });
 

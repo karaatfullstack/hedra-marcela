@@ -19,7 +19,13 @@ const Navbar = () => {
           <div>
             {/* The navbar will show these links after you log in */}
             <Link to="/home">Home</Link>
-            <button type="button" onClick={logoutAndRedirectHome}>
+            <Link to="/properties">Properties</Link>
+            <Link to="/properties">Tasks</Link>
+            <button
+              className="button-31"
+              type="button"
+              onClick={logoutAndRedirectHome}
+            >
               Logout
             </button>
           </div>
@@ -31,7 +37,6 @@ const Navbar = () => {
           </div>
         )}
       </nav>
-      <hr />
     </div>
   );
 };
