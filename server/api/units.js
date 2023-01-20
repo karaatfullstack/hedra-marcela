@@ -23,6 +23,7 @@ router.get("/unitId", async (req, res, next) => {
 
 router.put("/unitId", async (req, res, next) => {
   try {
+    console.log("try this", req.params.unitId);
     const unit = await Unit.findByPk(req.params.unitId, {
       include: [{ model: Property }],
     });
@@ -30,6 +31,7 @@ router.put("/unitId", async (req, res, next) => {
       let updateUnit = await unit.update(req.body);
       res.json(updateUnit);
     } else {
+      console.log("try this", req.params.unitId);
       res.sendStatus(404);
     }
   } catch (err) {

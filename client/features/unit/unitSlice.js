@@ -35,6 +35,7 @@ const unitSlice = createSlice({
       return action.payload;
     });
     builder.addCase(updateUnit.fulfilled, (state, action) => {
+      console.log("look at meeee", state, JSON.stringify(action.payload));
       return action.payload;
     });
   },

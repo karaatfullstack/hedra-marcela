@@ -17,6 +17,7 @@ label {
 
 nav {
   background-color: #5e5df0;
+  position: static;
 }
 nav a {
   display: inline-block;
@@ -180,4 +181,12 @@ span {
 .button-31:hover,
 .button-31:focus {
   opacity: 0.75;
+}
+
+.single-property {
+  overflow-y: scroll;
+}
+
+.unitList {
+  overflow-y: scroll;
 }

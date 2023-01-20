@@ -19,7 +19,7 @@ const Property = () => {
   const [openModal, setOpenModal] = useState(false);
 
   return (
-    <div className="single-item">
+    <div className="single-property">
       <h1>{name}</h1>
       <Grid
         container
@@ -31,7 +31,7 @@ const Property = () => {
           mt: 30,
         }}
       >
-        <Card raised sx={{ width: 400, height: 600, ml: 10, mt: 8 }}>
+        <Card raised sx={{ width: 400, height: 700, ml: 10, mt: 8 }}>
           <div key={propertyId}>
             <Grid align="center">
               <CardMedia
@@ -67,35 +67,46 @@ const Property = () => {
             </button>
           </Grid>
         </Card>
-        <Card raised sx={{ width: 1200, height: 600, ml: 10, mt: 8 }}>
-          <Typography variant="h6" align="left">
-            Unit List
-          </Typography>
-
-          <ul>
-            {property.units && property.units.length
-              ? property.units.map((unit) => {
-                  return (
-                    <li key={unit.id}>
-                      <p>
-                        Unit: {unit.name} | Type: {unit.unitType} | Lease Start:{" "}
-                        {unit.leaseStart} | Lease End: {unit.leaseEnd} |
-                        Occupancy: {unit.occupancy}
-                      </p>
-                      <button
-                        className="button-30"
-                        onClick={() => setOpenModal(true)}
-                      >
-                        Update Lease Status
-                      </button>
-                      {openModal && (
-                        <UpdateUnitModal closeModal={setOpenModal} />
-                      )}
-                    </li>
-                  );
-                })
-              : null}
-          </ul>
+        <Card raised sx={{ width: 1200, height: 700, ml: 10, mt: 8 }}>
+          <div>
+            <CardContent align="left">
+              <Typography variant="h6" align="left">
+                Unit List
+              </Typography>
+              <div className="unitList">
+                <ul>
+                  {property.units && property.units.length
+                    ? property.units.map((unit) => {
+                        return (
+                          <div key={unit.id}>
+                            <li>
+                              <p>
+                                Unit Id: {unit.id} | Unit: {unit.name} | Type:{" "}
+                                {unit.unitType} | Lease Start: {unit.leaseStart}{" "}
+                                | Lease End: {unit.leaseEnd} | Occupancy:{" "}
+                                {unit.occupancy}
+                              </p>
+                              <button
+                                className="button-30"
+                                onClick={() => setOpenModal(true)}
+                              >
+                                Update Lease Status
+                              </button>
+                              {openModal && (
+                                <UpdateUnitModal
+                                  closeModal={setOpenModal}
+                                  unit={unit}
+                                />
+                              )}
+                            </li>
+                          </div>
+                        );
+                      })
+                    : null}
+                </ul>
+              </div>
+            </CardContent>
+          </div>
         </Card>
       </Grid>
     </div>
