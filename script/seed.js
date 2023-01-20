@@ -16,25 +16,83 @@ const properties = [
     totalUnits: 8,
     description: "4 Story Condo Building, with 8 units.",
   },
+  {
+    name: "Betancourt",
+    address: "204 21st Street, Brooklyn, NY 11232",
+    imageUrl: "https://p.rdcpix.com/v02/l4a0da442-m0od-w480_h480_q80.jpg",
+    yearBuilt: 2010,
+    totalUnits: 8,
+    description: "4 Story Condo Building, with 8 units.",
+  },
+  {
+    name: "Caledonia",
+    address: "200 21st Street, Brooklyn, NY 11232",
+    imageUrl: "https://p.rdcpix.com/v02/l4a0da442-m0od-w480_h480_q80.jpg",
+    yearBuilt: 2010,
+    totalUnits: 8,
+    description: "4 Story Condo Building, with 8 units.",
+  },
+  {
+    name: "Davos",
+    address: "198 21st Street, Brooklyn, NY 11232",
+    imageUrl: "https://p.rdcpix.com/v02/l4a0da442-m0od-w480_h480_q80.jpg",
+    yearBuilt: 2010,
+    totalUnits: 8,
+    description: "4 Story Condo Building, with 8 units.",
+  },
 ];
 
 const units = [
   {
     name: "A",
     unitType: "2 Bedroom, 1 bath, duplex",
+    leaseStart: "2022-06-01",
+    leaseEnd: "2023-06-01",
   },
   {
     name: "B",
     unitType: "2 Bedroom, 1 bath, duplex",
+    leaseStart: "2022-12-01",
+    leaseEnd: "2023-12-01",
   },
   {
     name: "C",
     unitType: "2 Bedroom, 1 bath",
     occupancy: "VACANT",
+    leaseStart: "2021-12-01",
+    leaseEnd: "2022-12-01",
   },
   {
     name: "D",
     unitType: "2 Bedroom, 1 bath",
+    leaseStart: "2023-01-01",
+    leaseEnd: "2024-01-01",
+  },
+  {
+    name: "E",
+    unitType: "2 Bedroom, 1 bath",
+    leaseStart: "2022-10-01",
+    leaseEnd: "2023-10-01",
+  },
+  {
+    name: "F",
+    unitType: "2 Bedroom, 1 bath",
+    leaseStart: "2022-09-01",
+    leaseEnd: "2023-09-01",
+  },
+  {
+    name: "G",
+    unitType: "2 Bedroom, 1 bath",
+    occupancy: "VACANT",
+    leaseStart: "2021-11-01",
+    leaseEnd: "2022-11-01",
+  },
+  {
+    name: "H",
+    unitType: "2 Bedroom, 1 bath",
+    occupancy: "VACANT",
+    leaseStart: "2021-10-01",
+    leaseEnd: "2022-10-01",
   },
 ];
 
@@ -61,12 +119,16 @@ async function seed() {
     })
   );
 
-  const [A, B, C, D] = unitList;
+  const [A, B, C, D, E, F, G, H] = unitList;
 
   await A.setProperty(Adelphi);
   await B.setProperty(Adelphi);
   await C.setProperty(Adelphi);
   await D.setProperty(Adelphi);
+  await E.setProperty(Adelphi);
+  await F.setProperty(Adelphi);
+  await G.setProperty(Adelphi);
+  await H.setProperty(Adelphi);
 
   for (let i = 0; i < data.length; i++) {
     const task = data[i];

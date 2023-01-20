@@ -65,10 +65,42 @@ span {
   border: 0;
 }
 
+.button-30 {
+  background: #5e5df0;
+  border-radius: 999px;
+  box-shadow: #5e5df0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji",
+    NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
+    EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
+    "Noto Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 12px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+
 .modalBackground {
   width: 100vw;
   height: 100vh;
   position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalBackground2 {
+  position: static;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,6 +117,18 @@ span {
   padding: 25px;
 }
 
+.modalContainer2 {
+  width: 300px;
+  height: 350px;
+  border-radius: 12px;
+  background-image: url("background.jpg");
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  padding: 25px;
+}
+
 .modalBody {
   display: contents;
   justify-content: center;
@@ -97,7 +141,7 @@ span {
   align-items: flex-end;
 }
 
-#mainTitle {
+.mainTitle {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,14 +1,8 @@
-import {
-  Button,
-  Card,
-  CardContent,
-  CardMedia,
-  Grid,
-  Typography,
-} from "@mui/material";
-import React, { useEffect } from "react";
+import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import UpdateUnitModal from "../modal/UpdateUnitModal";
 import { fetchProperty, selectProperty } from "./propertySlice";
 
 const Property = () => {
@@ -21,6 +15,8 @@ const Property = () => {
   useEffect(() => {
     dispatch(fetchProperty(propertyId));
   }, [dispatch]);
+
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <div className="single-item">
@@ -66,22 +62,35 @@ const Property = () => {
             </CardContent>
           </div>
           <Grid align="center">
-            <Button type="submit" display="flex">
+            <button className="button-34" type="submit" display="flex">
               Edit Property
-            </Button>
+            </button>
           </Grid>
         </Card>
-        <Card raised sx={{ width: 1000, height: 600, ml: 10, mt: 8 }}>
+        <Card raised sx={{ width: 1200, height: 600, ml: 10, mt: 8 }}>
           <Typography variant="h6" align="left">
             Unit List
           </Typography>
+
           <ul>
             {property.units && property.units.length
               ? property.units.map((unit) => {
-                  let unitId = unit.id;
                   return (
                     <li key={unit.id}>
-                      <p>{unit.name}</p>
+                      <p>
+                        Unit: {unit.name} | Type: {unit.unitType} | Lease Start:{" "}
+                        {unit.leaseStart} | Lease End: {unit.leaseEnd} |
+                        Occupancy: {unit.occupancy}
+                      </p>
+                      <button
+                        className="button-30"
+                        onClick={() => setOpenModal(true)}
+                      >
+                        Update Lease Status
+                      </button>
+                      {openModal && (
+                        <UpdateUnitModal closeModal={setOpenModal} />
+                      )}
                     </li>
                   );
                 })

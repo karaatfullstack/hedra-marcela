@@ -13,20 +13,6 @@ export const fetchProperty = createAsyncThunk(
   }
 );
 
-export const addUnit = createAsyncThunk(
-  "addUnit",
-  async ({ propertyId, unitId }) => {
-    try {
-      const { data } = await axios.post(
-        `/api/campuses/${propertyId}/${unitId}`
-      );
-      return data;
-    } catch (error) {
-      return error.message;
-    }
-  }
-);
-
 const propertySlice = createSlice({
   name: "property",
   initialState: {},

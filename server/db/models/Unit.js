@@ -16,6 +16,20 @@ const Unit = db.define("unit", {
       notEmpty: true,
     },
   },
+  leaseStart: {
+    type: Sequelize.DATEONLY,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
+  },
+  leaseEnd: {
+    type: Sequelize.DATEONLY,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
+  },
   occupancy: {
     type: Sequelize.ENUM("OCCUPIED", "VACANT"),
     defaultValue: "OCCUPIED",
