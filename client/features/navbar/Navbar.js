@@ -19,8 +19,9 @@ const Navbar = () => {
           <div>
             {/* The navbar will show these links after you log in */}
             <Link to="/home">Home</Link>
-            <Link to="/properties">Properties</Link>
-            <Link to="/properties">Tasks</Link>
+            <Link to="/properties">All Properties</Link>
+            <Link to="/units">All Units</Link>
+            <Link to="/tasks">Property Ops</Link>
             <button
               className="button-31"
               type="button"

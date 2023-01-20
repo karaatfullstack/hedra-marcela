@@ -66,33 +66,26 @@ const Property = () => {
             </CardContent>
           </div>
           <Grid align="center">
-            <Button
-              type="submit"
-              display="flex"
-              onClick={async (evt) => {
-                evt.preventDefault();
-                await dispatch(addToCartAsync({ userId, productId }));
-              }}
-            >
+            <Button type="submit" display="flex">
               Edit Property
             </Button>
           </Grid>
         </Card>
         <Card raised sx={{ width: 1000, height: 600, ml: 10, mt: 8 }}>
-          <Typography variant="h5" align="left">
+          <Typography variant="h6" align="left">
             Unit List
           </Typography>
           <ul>
-            {units && units.length
+            {/* {units && units.length
               ? units.map((unit) => {
                   let unitId = unit.id;
                   return (
-                    <li>
+                    <li key={unit.id}>
                       <p>{unit.name}</p>
                     </li>
                   );
                 })
-              : null}
+              : null} */}
           </ul>
         </Card>
       </Grid>

@@ -9,8 +9,8 @@ const Task = require("./models/Task");
 
 //associations could go here!
 
-Property.hasMany(Unit);
 Unit.belongsTo(Property);
+Property.hasMany(Unit);
 Property.hasMany(Task);
 
 module.exports = {
