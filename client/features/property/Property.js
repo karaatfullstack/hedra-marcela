@@ -76,8 +76,8 @@ const Property = () => {
             Unit List
           </Typography>
           <ul>
-            {/* {units && units.length
-              ? units.map((unit) => {
+            {property.units && property.units.length
+              ? property.units.map((unit) => {
                   let unitId = unit.id;
                   return (
                     <li key={unit.id}>
@@ -85,7 +85,7 @@ const Property = () => {
                     </li>
                   );
                 })
-              : null} */}
+              : null}
           </ul>
         </Card>
       </Grid>

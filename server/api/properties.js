@@ -31,14 +31,14 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.post("/:propertyId/:unitId", async (req, res, next) => {
-  try {
-    const property = await Property.findByPk(req.params.propertyId, {
-      include: [{ model: Unit }],
-    });
-  } catch (err) {
-    next(err);
-  }
-});
+// router.post("/:propertyId/:unitId", async (req, res, next) => {
+//   try {
+//     const property = await Property.findByPk(req.params.propertyId, {
+//       include: [{ model: Unit }],
+//     });
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
 module.exports = router;
