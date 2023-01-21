@@ -23,7 +23,7 @@ const db = new Sequelize(
     port: 5432,
     database: "hedra",
     dialect: "postgres",
-    username: "postgres",
+    username: "karacavanaugh",
     password: "admin",
     config,
   }

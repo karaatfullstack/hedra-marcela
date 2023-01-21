@@ -1,12 +1,13 @@
 import React from "react";
 import UpdateUnitForm from "../Form/UpdateUnit";
 
-const UpdateUnitModal = ({ closeModal }) => {
+const UpdateUnitModal = ({ setOpenModal, unit }) => {
+  console.log("value of UNIT clicked: ", unit);
   return (
     <div className="modalBackground2">
       <div className="modalContainer2">
         <div className="titleCloseBtn">
-          <button className="button-34" onClick={() => closeModal(false)}>
+          <button className="button-34" onClick={() => setOpenModal("")}>
             X
           </button>
         </div>
@@ -14,7 +15,7 @@ const UpdateUnitModal = ({ closeModal }) => {
           <h2>Update Unit Lease Terms:</h2>
         </div>
         <div className="modalBody">
-          <UpdateUnitForm />
+          <UpdateUnitForm unit={unit} />
         </div>
       </div>
     </div>

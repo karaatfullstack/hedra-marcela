@@ -10,7 +10,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/unitId", async (req, res, next) => {
+router.get("/:unitId", async (req, res, next) => { // need the :
   try {
     const unit = await Unit.findByPk(req.params.unitId, {
       include: [Property],
@@ -21,7 +21,7 @@ router.get("/unitId", async (req, res, next) => {
   }
 });
 
-router.put("/unitId", async (req, res, next) => {
+router.put("/:unitId", async (req, res, next) => { // need the :
   try {
     console.log("try this", req.params.unitId);
     const unit = await Unit.findByPk(req.params.unitId, {

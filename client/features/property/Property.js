@@ -16,7 +16,7 @@ const Property = () => {
     dispatch(fetchProperty(propertyId));
   }, [dispatch]);
 
-  const [openModal, setOpenModal] = useState(false);
+const [openModal, setOpenModal] = useState(false);
 
   return (
     <div className="single-property">
@@ -88,13 +88,13 @@ const Property = () => {
                               </p>
                               <button
                                 className="button-30"
-                                onClick={() => setOpenModal(true)}
+                                onClick={() => setOpenModal(unit.id)}
                               >
                                 Update Lease Status
                               </button>
-                              {openModal && (
+                              {openModal == unit.id && (
                                 <UpdateUnitModal
-                                  closeModal={setOpenModal}
+                                  setOpenModal={setOpenModal}
                                   unit={unit}
                                 />
                               )}
